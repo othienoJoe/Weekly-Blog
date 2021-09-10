@@ -12,8 +12,9 @@ def index():
 	# Getting the most popular news
 	popular_news = get_news('popular')
 	print(popular_news)
+	trending_news = get_news('now_trending')
 	title = 'Home - Welcome to People Favorite News Site'
-	return render_template('index.html', title = title, popular = popular_news)
+	return render_template('index.html', title = title, popular = popular_news, now_trending = trending_news)
 
 @app.route('/news/<int:news_id>')
 def news(news_id):

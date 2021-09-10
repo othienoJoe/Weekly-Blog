@@ -11,6 +11,20 @@
 	{% endif %}
 </head>
 <body>
-	<h1> {{ message }} </h1>
+	<!-- Popular News Section -->
+	<h2> Popular News </h2>
+	<ul>
+		{% for popular_news in popular %}
+		  <li> {{ popular_news.title}} </li>
+		{% endfor %}
+	</ul>
+
+	<!-- Trending News -->
+	<h2> Now Trending </h2>
+	<ul>
+		{% for trending_news in now_trending}
+		  <li>{{ trending_news.title }}</li>
+		{% endfor %}
+	</ul>
 </body>
 </html>
