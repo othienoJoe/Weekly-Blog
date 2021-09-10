@@ -5,7 +5,7 @@ class Config:
 	'''
 	General configuration parent class
 	'''
-	NEWS_API_BASE_URL ='https://newsapi.org/v2/everything?q=apple&from=2021-09-09&to=2021-09-09&sortBy=popularity&apiKey='
+	NEWS_API_BASE_URL ='https://newsapi.org/v2/everything?q=apple&from=2021-09-09&to=2021-09-09&sortBy=popularity&apiKey=ddbdb92d9552495e8799450b31bee0ff'
 
 class ProdConfig(Config):
 	'''

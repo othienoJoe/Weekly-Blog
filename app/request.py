@@ -27,3 +27,22 @@ def get_news(category):
 			news_results = process_results(news_results_list)
 
 	return news_results
+
+def process_results(news_list):
+	'''
+	This function processes the news result and transform then to the lost of Objects
+	Args:
+	  news_list: A list of news Objects.
+	'''
+	news_results = []
+	for news_item in news_list:
+		id = news_item.get('id')
+		title = news_item.get('original_title')
+		overview = news_item.get('overview')
+		poster = news_item.get('poster_path')
+
+		if poster:
+			news_object = News(id,title,overview,poster)
+			news_results.append(news_object)
+
+	return news_results
