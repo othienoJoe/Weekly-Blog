@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+{% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +13,9 @@
 	{% endif %}
 </head>
 <body>
+	<!-- Content Block -->
+	{% block content %}
+
 	<!-- Popular News Section -->
 	<h2> Popular News </h2>
 	<ul>
@@ -23,5 +27,7 @@
 	<ul>
 		{{ macro.displayNewsList(now_trending) }}
 	</ul>
+
+	{% endblock %}
 </body>
 </html>
