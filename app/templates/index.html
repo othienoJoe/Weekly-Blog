@@ -1,19 +1,25 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
-	<!-- Content Block -->
-	{% block content %}
+<!-- Styles block -->
+{% block styles %}
+  {{ super() }}
+	<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
 
-	<!-- Popular News Section -->
-	<h2> Popular News </h2>
-	<ul>
-		{{ macro.displayNewsList(popular) }}
-	</ul>
-	
-	<!-- Trending News -->
-	<h2> Now Trending </h2>
-	<ul>
-		{{ macro.displayNewsList(now_trending) }}
-	</ul>
+<!-- Content Block -->
+{% block content %}
 
-	{% endblock %}
+<!-- Popular News Section -->
+<h2> Popular News </h2>
+<ul>
+	{{ macro.displayNewsList(popular) }}
+</ul>
+
+<!-- Trending News -->
+<h2> Now Trending </h2>
+<ul>
+	{{ macro.displayNewsList(now_trending) }}
+</ul>
+
+{% endblock %}
