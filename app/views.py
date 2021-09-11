@@ -16,9 +16,12 @@ def index():
 	title = 'Home - Welcome to People Favorite News Site'
 	return render_template('index.html', title = title, popular = popular_news, now_trending = trending_news)
 
-@app.route('/news/<int:news_id>')
-def news(news_id):
+@app.route('/news/<int:id>')
+def news(id):
 	"""
 	A function for the news that returns the news' details and it data.
 	"""
-	return render_template('news.html',id = news_id)
+	news = get_news(id)
+	title = f'{news:title}'
+
+	return render_template('news.html', title = title, news = news)
