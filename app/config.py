@@ -1,6 +1,5 @@
 from instance.config import NEWS_API_KEY
 
-
 class Config:
 	'''
 	General configuration parent class

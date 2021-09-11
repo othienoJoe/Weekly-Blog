@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+{% import 'macros.html' as macro %}
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,17 +15,13 @@
 	<!-- Popular News Section -->
 	<h2> Popular News </h2>
 	<ul>
-		{% for popular_news in popular %}
-		  <li> {{ popular_news.title}} </li>
-		{% endfor %}
+		{{ macro.displayNewsList(popular) }}
 	</ul>
-
+	
 	<!-- Trending News -->
 	<h2> Now Trending </h2>
 	<ul>
-		{% for trending_news in now_trending}
-		  <li>{{ trending_news.title }}</li>
-		{% endfor %}
+		{{ macro.displayNewsList(now_trending) }}
 	</ul>
 </body>
 </html>

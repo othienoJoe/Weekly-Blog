@@ -8,7 +8,7 @@ News = news.News
 api_key = app.config['NEWS_API_KEY']
 
 # Getting the news base url
-base_url = app.config["NEWS_KEY_BASE_URL"]
+base_url = app.config["NEWS_API_BASE_URL"]
 
 def get_news(category):
 	'''
@@ -46,4 +46,3 @@ def process_results(news_list):
 			news_results.append(news_object)
 
 	return news_results
-	
