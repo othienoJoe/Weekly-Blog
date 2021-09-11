@@ -10,6 +10,24 @@ api_key = app.config['NEWS_API_KEY']
 # Getting the news base url
 base_url = app.config["NEWS_API_BASE_URL"]
 
+def get_news(id):
+	get_news_details_url = base_url.format(id,api_key)
+
+	with urllib.request.urlopen(get_news_details_url) as url:
+		news_details_data = url.read()
+		news_details_response = json.loads(news_details_data)
+
+		news_object = None
+		if news_details_response:
+			id = news_details_response.get('id')
+			title = news_details_response.get('original_title')
+			overview = news_details_response.get('overview')
+			poster = news_details_response.get('poster_path')
+
+			news_object = News(id,title,overview,poster,)
+
+	return news_object
+
 def get_news(category):
 	'''
 	This function gets the json response to our url request
