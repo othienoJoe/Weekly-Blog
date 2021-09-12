@@ -9,8 +9,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='ccs/index.css')}}">
+	{% if title %}
+	<title>News Highlights - {{ title }}</title>
+	{% else %}
 	<title>Welcome To The Weekly Blog</title>
+	{% endif %}
 </head>
 <body>
 	<!-- Navbar block -->
@@ -18,5 +22,31 @@
 		{% include 'navbar.html' %}
 	{% endblock %}
 	
+	<!-- The Main Content -->
+	{% block content %}
+
+	{% endblock %}
+	<!-- The Footer -->
+	<footer class="">
+		<div class="d-flex justify-content-center">
+							
+			<div>
+				<p style="display: none;">
+					Developed by: <a target="_blank" href="https://othienojoe.github.io/Nicodemus-Othieno/">Othieno Nicodemus</a>
+				</p>
+			</div>
+			<div class="justify-content-right">
+				<div>
+						<h5><a href="/sports">Sports</a></h5>
+				</div>
+				<div>
+						<h5><a href="/entertainment">Entertainment</a></h5>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+  crossorigin="anonymous"></script>
 </body>
 </html>
