@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from app import app
-from .request import get_news,get_news
+from ..request import get_news,get_news, search_news_articles
 
 # The views
 @app.route('/')
@@ -14,7 +14,13 @@ def index():
 	print(popular_news)
 	trending_news = get_news('now_trending')
 	title = 'Home - Welcome to People Favorite News Site'
-	return render_template('index.html', title = title, popular = popular_news, now_trending = trending_news)
+
+	search_news_articles = request.args.get(news)
+
+	if search_news_articles:
+		return redirect(url_for('search', news_title = search_news_articles))
+	else:
+	  return render_template('index.html', title = title, popular = popular_news, now_trending = trending_news)
 
 @app.route('/news/<int:news_id>')
 def news(news_id):

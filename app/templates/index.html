@@ -10,11 +10,27 @@
 <!-- Content Block -->
 {% block content %}
 
+<div class="container">
+
+	<form>
+		<input type="text" name="news_query" placeholder="Search for any news" class="form-control">
+		<input type="submit"  value="Submit" class="btn btn-default">
+	</form>
+
+</div>
+
 <!-- Popular News Section -->
 <h2> Popular News </h2>
 <ul>
 	{{ macro.displayNewsList(popular) }}
 </ul>
+
+<div class="top-news m-2">
+  <h3 class="text-uppercase headings text-center mt-5 mb-4">All News Articles <br> <small>({{ title }})</small></h3>
+  <div class="row">
+    {{ macro.displayNewsArticles(articles) }}
+  </div>
+</div>
 
 <!-- Trending News -->
 <h2> Now Trending </h2>
