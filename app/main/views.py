@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import main
-from ..request import get_news, get_news, search_news_articles
+from ..request import get_news, get_news_category, search_news_articles
 
 # The views
 @main.route('/')
@@ -10,9 +10,9 @@ def index():
 	"""
 
 	# Getting the most popular news
-	popular_news = get_news('articles')
+	popular_news = get_news_category('entertainment')
 	print(popular_news)
-	trending_news = get_news('now_trending')
+	trending_news = get_news_category('now_trending')
 	title = 'Home - Welcome to People Favorite News Site'
 
 	search_news_articles = request.args.get(news)

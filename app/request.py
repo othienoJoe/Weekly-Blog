@@ -23,6 +23,7 @@ def get_news(news_id):
 	with urllib.request.urlopen(get_news_url) as url:
 		news_details_data = url.read()
 		news_details_response = json.loads(news_details_data)
+		print(news_details_response)
 
 		news_results = None
 
@@ -32,7 +33,7 @@ def get_news(news_id):
 
 	return news_results
 
-def get_news(category):
+def get_news_category(category):
 	'''
 	This function gets the json response to our url request
 	'''
@@ -41,6 +42,7 @@ def get_news(category):
 	with urllib.request.urlopen(get_news_url) as url:
 		get_news_data = url.read()
 		get_news_response = json.loads(get_news_data)
+		print(get_news_response)
 
 		news_results = None
 
@@ -81,15 +83,14 @@ def process_results(news_list):
 	'''
 	news_results = []
 	for news_item in news_list:
-		author = news_item.get('author')
-		title = news_item.get('title')
+		author = news_item.get('id')
+		title = news_item.get('name')
 		description = news_item.get('description')
 		url = news_item.get('url')
-		urlToImage = news_item.get('urlToImage')
-		publishedAt = news_item.get('publishedAt')
-		content = news_item.get('content')
+		urlToImage = news_item.get('category')
+		publishedAt = news_item.get('language')
 
-		news_object = Sources(author, title, description, url, urlToImage, publishedAt, content)
+		news_object = Sources(author, title, description, url, urlToImage, publishedAt,)
 		news_results.append(news_object)
 
 	return news_results
